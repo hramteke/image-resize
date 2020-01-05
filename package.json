@@ -1,0 +1,16 @@
+{
+  "name": "image-resize",
+  "version": "1.0.0",
+  "description": "The project is aimed to resize an image for given dimensions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "_hramteke",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "resize-image": "^0.1.0",
+    "sharp": "^0.23.4"
+  }
+}
