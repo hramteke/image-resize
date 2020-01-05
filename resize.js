@@ -1,7 +1,8 @@
 const fs = require('fs')
 const sharp = require('sharp')
+const request = require('request')
 
-module.exports = function resize(path, format, width, height) {
+module.exports = function resize(path, format, width, height, isUrl) {
     let outputFileName
     if(width && height) {
         outputFileName = path.substring(0, path.lastIndexOf('.')) + '_' + width + 'x' + height + '.' + format
@@ -14,7 +15,6 @@ module.exports = function resize(path, format, width, height) {
     }
     
     let readStream
-    console.log('OutputFile: ' + outputFileName)
     if(!fs.existsSync(outputFileName)) {
         readStream = fs.createReadStream(path)
         let transform = sharp()
@@ -33,7 +33,6 @@ module.exports = function resize(path, format, width, height) {
 
         return readStream.pipe(transform)
     } else {
-        console.log('File exists')
         readStream = fs.createReadStream(outputFileName)
         return readStream
     }
